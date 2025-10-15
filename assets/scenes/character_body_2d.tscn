@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr58oawlj7b6v"]
+
+[ext_resource type="Texture2D" uid="uid://c80362feie7ai" path="res://assets/sprites/tilemap-characters.png" id="1_64yqu"]
+[ext_resource type="Script" uid="uid://brguwnfadkbrb" path="res://assets/scripts/player_controller.gd" id="1_c75ah"]
+
+[sub_resource type="Animation" id="Animation_c75ah"]
+resource_name = "walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3yq6"]
+_data = {
+&"walk": SubResource("Animation_c75ah")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c75ah"]
+radius = 7.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_c75ah")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -15)
+zoom = Vector2(6, 6)
+
+[node name="AnimationFiles" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationFiles"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_u3yq6")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationFiles"]
+position = Vector2(1.19209e-07, -6)
+scale = Vector2(0.64, 0.6)
+texture = ExtResource("1_64yqu")
+region_enabled = true
+region_rect = Rect2(150, 0, 25, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_c75ah")
