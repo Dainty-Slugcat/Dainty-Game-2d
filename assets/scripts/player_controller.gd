@@ -42,7 +42,6 @@ func _physics_process(delta: float) -> void:
 		facing = 0
 	
 	anim_sprite.flip_h = facing #If 0 then faces left, if 1 then faces right
-	print(facing)
 
 	if is_moving:
 		anim_sprite.play("walk")
