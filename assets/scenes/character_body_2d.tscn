@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://cqpyuqbvagrhf" path="res://assets/sprites/idle.png" id="2_u3yq6"]
 [ext_resource type="Texture2D" uid="uid://bynidohst8nqu" path="res://assets/sprites/walk.png" id="3_ggihr"]
 
-[sub_resource type="Animation" id="Animation_c75ah"]
-resource_name = "walk"
-
 [sub_resource type="Animation" id="Animation_u3yq6"]
 resource_name = "Idle"
 
 [sub_resource type="Animation" id="Animation_ggihr"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_c75ah"]
+resource_name = "walk"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u3yq6"]
 _data = {
@@ -31,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c75ah"]
@@ -40,11 +40,6 @@ height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c75ah")
-speed = null
-jump_power = null
-jump_cutoff = null
-gravity = null
-jump_buffer_time = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -15)
@@ -58,11 +53,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_u3yq6")
 }
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationFiles"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7.0000005)
 scale = Vector2(0.325, 0.325)
 sprite_frames = SubResource("SpriteFrames_c75ah")
 animation = &"walk"
+frame_progress = 0.6532674
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
