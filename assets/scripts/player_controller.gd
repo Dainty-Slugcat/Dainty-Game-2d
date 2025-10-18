@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 
 	# Left/right movement
 	var direction = Input.get_axis("move_left", "move_right")
+	play("walk")
 	if direction != 0:
 		if is_on_floor():
 			velocity.x = direction * speed
