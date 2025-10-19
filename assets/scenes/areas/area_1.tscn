@@ -412,52 +412,17 @@ limit_bottom = 136
 script = ExtResource("3_ifg76")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.05, 1.05)
+motion_mirroring = Vector2(385, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-32, -168)
-scale = Vector2(2.8811405, 3.3055556)
+position = Vector2(8, -152)
+scale = Vector2(2.0374627, 2.1631944)
 texture = ExtResource("3_sr7qv")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
-position = Vector2(191.56197, -4.7683716e-07)
-scale = Vector2(1.0351665, 0.9999999)
-texture = ExtResource("3_sr7qv")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D/Sprite2D"]
-position = Vector2(-91.05426, 140.36977)
-scale = Vector2(1.9575813, 0.9999999)
-texture = ExtResource("3_sr7qv")
-flip_v = true
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-1119.9999, -168)
-scale = Vector2(2.8811405, 3.3055556)
-texture = ExtResource("3_sr7qv")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D2"]
-position = Vector2(191.56197, -4.7683716e-07)
-scale = Vector2(1.0351665, 0.9999999)
-texture = ExtResource("3_sr7qv")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D2/Sprite2D"]
-position = Vector2(-91.05426, 140.36977)
-scale = Vector2(1.9575813, 0.9999999)
-texture = ExtResource("3_sr7qv")
-flip_v = true
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(1063.9996, -168)
-scale = Vector2(2.8811405, 3.3055556)
-texture = ExtResource("3_sr7qv")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D3"]
-position = Vector2(191.56197, -4.7683716e-07)
-scale = Vector2(1.0351665, 0.9999999)
-texture = ExtResource("3_sr7qv")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D3/Sprite2D"]
-position = Vector2(-91.05426, 140.36977)
-scale = Vector2(1.9575813, 0.9999999)
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+position = Vector2(0, 142.78989)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("3_sr7qv")
 flip_v = true
 
