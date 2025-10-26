@@ -1,3 +1,56 @@
-[gd_scene format=3 uid="uid://cbgglno1fqfhu"]
+[gd_scene load_steps=9 format=3 uid="uid://cbgglno1fqfhu"]
 
-[node name="Enemies" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://c80362feie7ai" path="res://assets/sprites/tilemap-characters.png" id="1_tjhje"]
+[ext_resource type="Script" uid="uid://guaxft466ok5" path="res://assets/scenes/bird-enemy.gd" id="2_knq3o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_knq3o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knq3o"]
+atlas = ExtResource("1_tjhje")
+region = Rect2(150, 50, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72qdk"]
+atlas = ExtResource("1_tjhje")
+region = Rect2(175, 50, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s16n8"]
+atlas = ExtResource("1_tjhje")
+region = Rect2(200, 50, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1k2b0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knq3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72qdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s16n8")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knq3o"]
+size = Vector2(23, 15.5)
+
+[node name="node2D" type="Node2D"]
+script = ExtResource("2_knq3o")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 1.74
+physics_material_override = SubResource("PhysicsMaterial_knq3o")
+
+[node name="animated_sprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_1k2b0")
+animation = &"fly"
+frame_progress = 0.32188985
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_knq3o")
+debug_color = Color(2.0214916e-06, 0.6130397, 0.61988026, 0.41960785)

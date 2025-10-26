@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://h472lsg701rh"]
+[gd_scene load_steps=8 format=3 uid="uid://h472lsg701rh"]
 
 [ext_resource type="Texture2D" uid="uid://cp03jqfwuj8ys" path="res://assets/sprites/tilemap.png" id="1_db1nh"]
+[ext_resource type="PackedScene" uid="uid://cbgglno1fqfhu" path="res://assets/scenes/enemies.tscn" id="2_jjeiq"]
 [ext_resource type="PackedScene" uid="uid://dr58oawlj7b6v" path="res://assets/scenes/character_body_2d.tscn" id="2_o23ij"]
 [ext_resource type="Script" uid="uid://cn2pjlhufq0fs" path="res://assets/scenes/areas/parallax_background.gd" id="3_ifg76"]
 [ext_resource type="Texture2D" uid="uid://bn5b04tg12m86" path="res://assets/sprites/tilemap-backgrounds_packed.png" id="3_sr7qv"]
@@ -468,6 +469,39 @@ position = Vector2(0, 142.78989)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("3_sr7qv")
 flip_v = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-376, -440)
+scale = Vector2(2.0374627, 2.1631944)
+texture = ExtResource("3_sr7qv")
+flip_v = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(8, -440)
+scale = Vector2(2.0374627, 2.1631944)
+texture = ExtResource("3_sr7qv")
+flip_v = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(391.99997, -440)
+scale = Vector2(2.0374627, 2.1631944)
+texture = ExtResource("3_sr7qv")
+flip_v = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(775.99994, -440)
+scale = Vector2(2.0374627, 2.1631944)
+texture = ExtResource("3_sr7qv")
+flip_v = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1160, -440)
+scale = Vector2(2.0374627, 2.1631944)
+texture = ExtResource("3_sr7qv")
+flip_v = true
+
+[node name="bird enemy" parent="." instance=ExtResource("2_jjeiq")]
+position = Vector2(320, -104)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -100

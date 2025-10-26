@@ -4,18 +4,18 @@ extends CharacterBody2D
 @export var jump_power = -300.0
 @export var jump_cutoff = 0.3
 @export var gravity = 1000.0
-@export var jump_buffer_time = 0.2  # secondsaada
+@export var jump_buffer_time = 0.2
+@export var push_force: float = 300.0  # How hard the player pushes RigidBodies
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var jump_buffer_timer = 0.0
 var current_costume = 0
 var was_moving = false
-
 var facing = 1
 
 func _physics_process(delta: float) -> void:
-	# Update gravity
+	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -33,15 +33,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y *= jump_cutoff
 
 	# Horizontal movement
-	var direction = Input.get_axis("move_left", "move_right") #Returns -1 for left, 1 for right
+	var direction = Input.get_axis("move_left", "move_right")
 	var is_moving = direction != 0
-	
+
 	if direction == 1:
 		facing = 1
 	elif direction == -1:
 		facing = 0
-	
-	anim_sprite.flip_h = facing #If 0 then faces left, if 1 then faces right
+
+	anim_sprite.flip_h = facing
 
 	if is_moving:
 		anim_sprite.play("walk")
@@ -59,4 +59,15 @@ func _physics_process(delta: float) -> void:
 
 	was_moving = is_moving
 
+	# Move the character
 	move_and_slide()
+
+	# --- Push RigidBodies when colliding ---
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+
+		if collider is RigidBody2D:
+			# Apply a push impulse away from the collision normal
+			var push_dir = -collision.get_normal()
+			collider.apply_central_impulse(push_dir * push_force)
